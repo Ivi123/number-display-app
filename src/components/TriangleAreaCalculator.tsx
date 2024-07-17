@@ -11,13 +11,12 @@ interface TriangleAreaCalculatorProps {
 const TriangleAreaCalculator: React.FC<TriangleAreaCalculatorProps> = ({ height, width, onHeightChange, onWidthChange }) => {
   return (
     <div className="triangle-area-calculator">
-      <label>Height</label>
-      <input type="number" value={height || ''} onChange={onHeightChange} />
-      <label>Width</label>
-      <input type="number" value={width || ''} onChange={onWidthChange} />
+      <label htmlFor="height-input">Height</label>
+      <input id="height-input" type="number" value={height} onChange={onHeightChange} />
+      <label htmlFor="width-input">Width</label>
+      <input id="width-input" type="number" value={width} onChange={onWidthChange} />
       <div>
-        The calculated area is printed here:
-        {height > 0 && width > 0 && calculateArea(height, width)}
+        The calculated area is printed here: {calculateArea(height, width)}
       </div>
     </div>
   );

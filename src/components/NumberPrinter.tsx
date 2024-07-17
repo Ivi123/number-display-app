@@ -8,11 +8,11 @@ interface NumberPrinterProps {
 const NumberPrinter: React.FC<NumberPrinterProps> = ({ maxNumber, onMaxNumberChange }) => {
   return (
     <div className="number-printer">
-      <label>Max Number to Print</label>
-      <input type="number" value={maxNumber || ''} onChange={onMaxNumberChange} />
+      <label htmlFor="max-number-input">Max Number to Print</label>
+      <input id="max-number-input" type="number" value={maxNumber} onChange={onMaxNumberChange} />
       <div>
         The printed numbers:
-        {maxNumber > 0 && Array.from({ length: maxNumber }, (_, i) => i + 1).join(', ')}
+        {maxNumber && [...Array(maxNumber).keys()].map(n => n + 1).join(', ')}
       </div>
     </div>
   );

@@ -1,0 +1,21 @@
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import NumberPrinter from './NumberPrinter';
+
+test('renders NumberPrinter component', () => {
+  render(<NumberPrinter maxNumber={0} onMaxNumberChange={() => {}} />);
+  expect(screen.getByLabelText('Max Number to Print')).toBeInTheDocument();
+});
+
+test('displays numbers from 1 to the entered max number', () => {
+  const handleMaxNumberChange = jest.fn();
+  render(<NumberPrinter maxNumber={5} onMaxNumberChange={handleMaxNumberChange} />);
+  expect(screen.getByText('The printed numbers:1, 2, 3, 4, 5')).toBeInTheDocument();
+});
+
+test('calls onMaxNumberChange when input changes', () => {
+  const handleMaxNumberChange = jest.fn();
+  render(<NumberPrinter maxNumber={0} onMaxNumberChange={handleMaxNumberChange} />);
+  fireEvent.change(screen.getByLabelText('Max Number to Print'), { target: { value: '3' } });
+  expect(handleMaxNumberChange).toHaveBeenCalledTimes(1);
+});
