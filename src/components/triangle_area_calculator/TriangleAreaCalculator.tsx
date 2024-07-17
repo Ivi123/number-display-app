@@ -1,5 +1,6 @@
 import React from 'react';
-import { calculateArea } from '../utils/calculations';
+import { calculateArea } from '../../utils/calculations';
+import './TriangleAreaCalculator.css';
 
 interface TriangleAreaCalculatorProps {
   height: number;
@@ -16,7 +17,7 @@ const TriangleAreaCalculator: React.FC<TriangleAreaCalculatorProps> = ({ height,
       <label htmlFor="width-input">Width</label>
       <input id="width-input" type="number" value={width} onChange={onWidthChange} />
       <div>
-        The calculated area is printed here: {calculateArea(height, width)}
+        The calculated area of the triangle is: {calculateArea(height, width)}
       </div>
     </div>
   );

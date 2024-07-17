@@ -1,0 +1,26 @@
+.triangle-area-calculator {
+    background-color: #e6f7ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .triangle-area-calculator label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .triangle-area-calculator input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .triangle-area-calculator div {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  

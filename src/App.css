@@ -2,25 +2,15 @@
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 20px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
 }
 
-.number-printer,
-.triangle-area-calculator {
-  margin: 20px 0;
+.App h1 {
+  color: #343a40;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input {
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100px;
-}
-
-div {
-  margin-top: 10px;
-  font-weight: bold;
+.App .content {
+  max-width: 600px;
+  margin: 0 auto;
 }

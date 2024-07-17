@@ -11,7 +11,7 @@ test('renders TriangleAreaCalculator component', () => {
 
 test('calculates and displays the area of a triangle', () => {
   render(<TriangleAreaCalculator height={10} width={5} onHeightChange={() => {}} onWidthChange={() => {}} />);
-  expect(screen.getByText('The calculated area is printed here: 25')).toBeInTheDocument();
+  expect(screen.getByText('The calculated area of the triangle is: 25')).toBeInTheDocument();
 });
 
 test('calls onHeightChange and onWidthChange when inputs change', () => {

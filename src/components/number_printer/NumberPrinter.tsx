@@ -1,4 +1,5 @@
 import React from 'react';
+import './NumberPrinter.css';
 
 interface NumberPrinterProps {
   maxNumber: number;
@@ -11,7 +12,7 @@ const NumberPrinter: React.FC<NumberPrinterProps> = ({ maxNumber, onMaxNumberCha
       <label htmlFor="max-number-input">Max Number to Print</label>
       <input id="max-number-input" type="number" value={maxNumber} onChange={onMaxNumberChange} />
       <div>
-        The printed numbers:
+        The printed numbers: 
         {maxNumber && [...Array(maxNumber).keys()].map(n => n + 1).join(', ')}
       </div>
     </div>

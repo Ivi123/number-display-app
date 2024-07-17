@@ -1,0 +1,26 @@
+.number-printer {
+    background-color: #f0f8ff;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .number-printer label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .number-printer input {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .number-printer div {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  

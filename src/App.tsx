@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import NumberPrinter from './components/NumberPrinter';
-import TriangleAreaCalculator from './components/TriangleAreaCalculator';
 import './App.css';
+import NumberPrinter from './components/number_printer/NumberPrinter';
+import TriangleAreaCalculator from './components/triangle_area_calculator/TriangleAreaCalculator';
 
 const App: React.FC = () => {
   const [maxNumber, setMaxNumber] = useState<number | ''>('');
@@ -22,13 +22,16 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <NumberPrinter maxNumber={maxNumber === '' ? 0 : maxNumber} onMaxNumberChange={handleMaxNumberChange} />
-      <TriangleAreaCalculator
-        height={height === '' ? 0 : height}
-        width={width === '' ? 0 : width}
-        onHeightChange={handleHeightChange}
-        onWidthChange={handleWidthChange}
-      />
+      <h1>Number Printer and Area Calculator App</h1>
+      <div className="content">
+        <NumberPrinter maxNumber={maxNumber === '' ? 0 : maxNumber} onMaxNumberChange={handleMaxNumberChange} />
+        <TriangleAreaCalculator
+          height={height === '' ? 0 : height}
+          width={width === '' ? 0 : width}
+          onHeightChange={handleHeightChange}
+          onWidthChange={handleWidthChange}
+        />
+      </div>
     </div>
   );
 };
