@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import NumberPrinter from './components/NumberPrinter';
+import TriangleAreaCalculator from './components/TriangleAreaCalculator';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const [maxNumber, setMaxNumber] = useState<number | ''>('');
+  const [height, setHeight] = useState<number | ''>('');
+  const [width, setWidth] = useState<number | ''>('');
+
+  const handleMaxNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setMaxNumber(e.target.value === '' ? '' : Number(e.target.value));
+  };
+
+  const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setHeight(e.target.value === '' ? '' : Number(e.target.value));
+  };
+
+  const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setWidth(e.target.value === '' ? '' : Number(e.target.value));
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NumberPrinter maxNumber={maxNumber === '' ? 0 : maxNumber} onMaxNumberChange={handleMaxNumberChange} />
+      <TriangleAreaCalculator
+        height={height === '' ? 0 : height}
+        width={width === '' ? 0 : width}
+        onHeightChange={handleHeightChange}
+        onWidthChange={handleWidthChange}
+      />
     </div>
   );
-}
+};
 
 export default App;
