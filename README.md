@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Number Display App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple TypeScript React application that displays numbers up to a user-input maximum and calculates the area of a triangle based on user-input height and width. The app includes validation to ensure only positive integers are accepted.
+![image](https://github.com/user-attachments/assets/fa35ee9a-1992-44ed-91aa-ae82be27d936)
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Number Display**: User inputs a maximum number, and the app displays all numbers from 1 to the inputted number.
+- **Triangle Area Calculator**: User inputs height and width, and the app calculates and displays the area of the triangle.
+- **Input Validation**: Ensures only positive integers are accepted for both functionalities.
 
-### `npm start`
+## Project Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **src/components/number_printer/**:
+  - `NumberPrinter.tsx`: Component to input maximum number and display numbers.
+  - `NumberPrinter.css`: Styling for the `NumberPrinter` component.
+  - `NumberPrinter.test.tsx`: Unit tests for `NumberPrinter`.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **src/components/triangle_area_calculator/**:
+  - `TriangleAreaCalculator.tsx`: Component to input height and width, and display the calculated area.
+  - `TriangleAreaCalculator.css`: Styling for the `TriangleAreaCalculator` component.
+  - `TriangleAreaCalculator.test.tsx`: Unit tests for `TriangleAreaCalculator`.
 
-### `npm test`
+- **src/utils/**:
+  - `calculations.ts`: Utility functions for calculations.
+  - `calculations.test.ts`: Unit tests for business functions.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **src/App.tsx**: Main application component.
 
-### `npm run build`
+## Validation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Input validation is handled to ensure only positive integers are accepted for both the number display and triangle area calculator functionalities. This is done using regular expressions in the change handlers in `App.tsx`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Testing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project includes unit tests for both business logic and display logic:
+- **Business Logic**: Tests for the `calculateArea` function in `calculations.test.ts`.
+- **Display Logic**: Tests for the `NumberPrinter` and `TriangleAreaCalculator` components to ensure proper rendering and validation.
+![image](https://github.com/user-attachments/assets/222a1212-276f-4b46-8866-92e3efb35287)
 
-### `npm run eject`
+## Continuous Integration
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+The project uses GitHub Actions for continuous integration. The workflow is defined in `.github/workflows/ci.yml` and runs the tests on every push or pull request to the `main` branch.
