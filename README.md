@@ -36,6 +36,7 @@ Input validation is handled to ensure only positive integers are accepted for bo
 The project includes unit tests for both business logic and display logic:
 - **Business Logic**: Tests for the `calculateArea` function in `calculations.test.ts`.
 - **Display Logic**: Tests for the `NumberPrinter` and `TriangleAreaCalculator` components to ensure proper rendering and validation.
+  
 ![image](https://github.com/user-attachments/assets/222a1212-276f-4b46-8866-92e3efb35287)
 
 ## Continuous Integration
