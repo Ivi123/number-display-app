@@ -10,10 +10,17 @@ const NumberPrinter: React.FC<NumberPrinterProps> = ({ maxNumber, onMaxNumberCha
   return (
     <div className="number-printer">
       <label htmlFor="max-number-input">Max Number to Print</label>
-      <input id="max-number-input" type="number" value={maxNumber} onChange={onMaxNumberChange} />
+      <input
+        id="max-number-input"
+        type="number"
+        value={maxNumber}
+        onChange={onMaxNumberChange}
+        min="0"
+        step="1"
+      />
       <div>
-        The printed numbers: 
-        {maxNumber && [...Array(maxNumber).keys()].map(n => n + 1).join(', ')}
+        The printed numbers:
+        {maxNumber && Array.from({ length: maxNumber }, (_, i) => i + 1).join(', ')}
       </div>
     </div>
   );

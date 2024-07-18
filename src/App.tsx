@@ -9,15 +9,24 @@ const App: React.FC = () => {
   const [width, setWidth] = useState<number | ''>('');
 
   const handleMaxNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setMaxNumber(e.target.value === '' ? '' : Number(e.target.value));
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setMaxNumber(value === '' ? '' : parseInt(value, 10));
+    }
   };
 
   const handleHeightChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setHeight(e.target.value === '' ? '' : Number(e.target.value));
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setHeight(value === '' ? '' : parseInt(value, 10));
+    }
   };
 
   const handleWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setWidth(e.target.value === '' ? '' : Number(e.target.value));
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setWidth(value === '' ? '' : parseInt(value, 10));
+    }
   };
 
   return (

@@ -19,3 +19,14 @@ test('calls onMaxNumberChange when input changes', () => {
   fireEvent.change(screen.getByLabelText('Max Number to Print'), { target: { value: '3' } });
   expect(handleMaxNumberChange).toHaveBeenCalledTimes(1);
 });
+
+test('does not accept negative numbers or decimals', () => {
+  const handleMaxNumberChange = jest.fn();
+  render(<NumberPrinter maxNumber={0} onMaxNumberChange={handleMaxNumberChange} />);
+  
+  fireEvent.change(screen.getByLabelText('Max Number to Print'), { target: { value: '-1' } });
+  expect(screen.getByLabelText('Max Number to Print')).toHaveValue(0);
+  
+  fireEvent.change(screen.getByLabelText('Max Number to Print'), { target: { value: '1.5' } });
+  expect(screen.getByLabelText('Max Number to Print')).toHaveValue(0);
+});

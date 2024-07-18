@@ -28,3 +28,24 @@ test('calls onHeightChange and onWidthChange when inputs change', () => {
   expect(handleHeightChange).toHaveBeenCalledTimes(1);
   expect(handleWidthChange).toHaveBeenCalledTimes(1);
 });
+
+test('does not accept negative numbers or decimals for height and width', () => {
+  const handleHeightChange = jest.fn();
+  const handleWidthChange = jest.fn();
+
+  render(<TriangleAreaCalculator height={0} width={0} onHeightChange={handleHeightChange} onWidthChange={handleWidthChange} />);
+
+  act(() => {
+    fireEvent.change(screen.getByLabelText('Height'), { target: { value: '-5' } });
+    fireEvent.change(screen.getByLabelText('Width'), { target: { value: '-10' } });
+  });
+  expect(screen.getByLabelText('Height')).toHaveValue(0);
+  expect(screen.getByLabelText('Width')).toHaveValue(0);
+
+  act(() => {
+    fireEvent.change(screen.getByLabelText('Height'), { target: { value: '5.5' } });
+    fireEvent.change(screen.getByLabelText('Width'), { target: { value: '10.5' } });
+  });
+  expect(screen.getByLabelText('Height')).toHaveValue(0);
+  expect(screen.getByLabelText('Width')).toHaveValue(0);
+});
